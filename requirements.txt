@@ -1,0 +1,8 @@
+numpy~=1.21.6
+matplotlib~=3.5.3
+scikit-image~=0.19.3
+filterpy~=1.4.5
+opencv-python~=4.7.0.72
+pafy~=0.5.5
+torch~=1.13.1
+youtube-dl==2020.12.2
