@@ -14,7 +14,7 @@ class YoloDetector:
         self.model = self.load_model(model_name) # Подгрузка модели
         self.classes = self.model.names # Список объектов для трекинга
         #отображение классов, которые имеются в весах
-        print(self.classes)
+        #print(self.classes)
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu' #Использование видеопамяти, если представляется возможным
         print("Using Device: ", self.device)
 
@@ -66,33 +66,26 @@ class YoloDetector:
                 #Определение класса объекта
 
                 if self.class_to_label(labels[i]) == 'bicycle':
-                    confidence = float(row[4].item())
                     detections.append([x1, y1, x2, y2, row[4].item()])
 
-                if self.class_to_label(labels[i]) == 'car':
-                    confidence = float(row[4].item())
+                if self.class_to_label(labels[i]) == 'сar':
                     detections.append([x1, y1, x2, y2, row[4].item()])
 
-                if self.class_to_label(labels[i]) == 'motorcycle':
-                    confidence = float(row[4].item())
+                elif self.class_to_label(labels[i]) == 'motorcycle':
                     detections.append([x1, y1, x2, y2, row[4].item()])
 
-                if self.class_to_label(labels[i]) == 'bus':
-                    confidence = float(row[4].item())
+                elif self.class_to_label(labels[i]) == 'bus':
                     detections.append([x1, y1, x2, y2, row[4].item()])
 
-                if self.class_to_label(labels[i]) == 'truck':
-                    confidence = float(row[4].item())
+                elif self.class_to_label(labels[i]) == 'truck':
                     detections.append([x1, y1, x2, y2, row[4].item()])
 
-                if self.class_to_label(labels[i]) == 'lorry':
-                    confidence = float(row[4].item())
+                elif self.class_to_label(labels[i]) == 'lorry':
                     detections.append([x1, y1, x2, y2, row[4].item()])
 
-                if self.class_to_label(labels[i]) == 'trailer':
-                    confidence = float(row[4].item())
+                elif self.class_to_label(labels[i]) == 'trailer':
                     detections.append([x1, y1, x2, y2, row[4].item()])
-
+            confidence = 0.5
         return frame, detections
 
 
