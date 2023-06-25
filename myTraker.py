@@ -85,7 +85,6 @@ class YoloDetector:
 
                 elif self.class_to_label(labels[i]) == 'trailer':
                     detections.append([x1, y1, x2, y2, row[4].item()])
-            confidence = 0.5
         return frame, detections
 
 
